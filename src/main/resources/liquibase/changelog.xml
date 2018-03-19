@@ -1,0 +1,16 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+
+    <changeSet id="init" author="kdybowski" dbms="h2">
+        <sqlFile path="liquibase/sql/init.sql"/>
+    </changeSet>
+
+    <changeSet id="sequences" author="kdybowski" dbms="h2">
+        <sqlFile path="liquibase/sql/sequences.sql"/>
+    </changeSet>
+
+    <changeSet id="insertions" author="kdybowski" dbms="h2">
+        <sqlFile path="liquibase/sql/insertions.sql"/>
+    </changeSet>
+
+</databaseChangeLog>
