@@ -9,8 +9,10 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 @Slf4j
 @SpringBootApplication
 public class ProjektV01Application extends SpringBootServletInitializer {
+
 	public static void main(String[] args) {
-		SpringApplication.run(ProjektV01Application.class, args);
+        SpringApplication.run(ProjektV01Application.class, args);
+
 	}
 
     @Override

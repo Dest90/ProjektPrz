@@ -13,10 +13,13 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class PersonEntity extends BaseEntity{
 
+    @Column
     private String email;
 
+    @Column
     private String password;
 
+    @Column
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "ID")
     private List<OrderEntity> orders;

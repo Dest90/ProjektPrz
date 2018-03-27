@@ -14,7 +14,7 @@ public class PartService {
     @Autowired
     private PartRepository partRepository;
 
-    public PartEntity addPart(AddPartDTO partDTO){
+    public PartEntity newPart(AddPartDTO partDTO){
 
         String name = partDTO.getName();
         float value = partDTO.getValue();
@@ -31,6 +31,38 @@ public class PartService {
         partEntity.setQuantity(quantity);
 
         return partRepository.save(partEntity);
+    }
+
+    public PartEntity addPart(AddPartDTO partDTO){
+
+        PartEntity partEntity = partRepository.findByName(partDTO.getName());
+        int quantity = partDTO.getQuantity();
+        if (partEntity == null){
+            throw new IllegalArgumentException("Part doesn't exist!");
+        }
+        partEntity.setQuantity(partDTO.getQuantity()+quantity);
+
+        return partRepository.save(partEntity);
+
+    }
+
+    public PartEntity removePart(AddPartDTO partDTO){
+
+        PartEntity partEntity = partRepository.findByName(partDTO.getName());
+        int quantity = partDTO.getQuantity();
+        if (partEntity == null){
+            throw new IllegalArgumentException("Part doesn't exist!");
+        }
+        if (partEntity.getQuantity() < quantity){
+            throw new IllegalArgumentException("There's not enough "+partEntity.getName()+" in store");
+        }
+        partEntity.setQuantity(partDTO.getQuantity()-quantity);
+
+        return partRepository.save(partEntity);
+    }
+
+    public PartEntity showPart(AddPartDTO partDTO){
+        return partRepository.findByName(partDTO.getName());
     }
 
     public List<PartEntity> listAllParts() { return partRepository.findAll(); }

@@ -16,9 +16,24 @@ public class PartController {
     @Autowired
     PartService partService;
 
+    @PostMapping("/new")
+    PartEntity newPart(@RequestBody @Validated AddPartDTO dto){
+        return partService.newPart(dto);
+    }
+
     @PostMapping("/add")
     PartEntity addPart(@RequestBody @Validated AddPartDTO dto){
         return partService.addPart(dto);
+    }
+
+    @PostMapping("/remove")
+    PartEntity removePart(@RequestBody @Validated AddPartDTO dto){
+        return partService.removePart(dto);
+    }
+
+    @GetMapping("/show")
+    PartEntity showPart(AddPartDTO dto){
+        return partService.showPart(dto);
     }
 
     @GetMapping("/list")

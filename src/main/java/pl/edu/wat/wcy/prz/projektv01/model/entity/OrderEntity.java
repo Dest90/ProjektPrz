@@ -15,10 +15,12 @@ import java.util.List;
 @EqualsAndHashCode(callSuper = true)
 public class OrderEntity extends BaseEntity{
 
+    @Column
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "id")
     private List<PartEntity> parts;
 
+    @Column
     @JsonFormat(pattern = "yyyy-MM-dd")
     private Date date;
 

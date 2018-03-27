@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import pl.edu.wat.wcy.prz.projektv01.model.base.BaseEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -13,10 +14,13 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = true)
 public class UserEntity extends BaseEntity{
 
+    @Column
     private String username;
 
+    @Column
     private String password;
 
+    @Column
     private String role;
 
 }

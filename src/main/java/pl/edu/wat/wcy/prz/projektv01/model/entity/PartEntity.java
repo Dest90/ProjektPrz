@@ -4,6 +4,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 import pl.edu.wat.wcy.prz.projektv01.model.base.BaseEntity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Table;
 
@@ -13,9 +14,12 @@ import javax.persistence.Table;
 @EqualsAndHashCode(callSuper = true)
 public class PartEntity extends BaseEntity{
 
+    @Column
     private String name;
 
-    private float value;
+    @Column
+    private double value;
 
+    @Column
     private int quantity;
 }
